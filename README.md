@@ -101,5 +101,3 @@ Total	~6 hours
 Skipped authentication (JWT) due to time constraints
 
 Focused on stable core CRUD + search functionality
-
-Minimal testing coverage (2 main endpoints)
