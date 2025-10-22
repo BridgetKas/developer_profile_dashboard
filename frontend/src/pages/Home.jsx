@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useCallback} from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
@@ -8,26 +8,33 @@ export default function Home() {
   const [profiles, setProfiles] = useState([]);
   const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    fetchProfiles();
-  }, [query]);
-
-  const fetchProfiles = async () => {
+  const fetchProfiles = useCallback(async () => {
     try {
-      const res = query
-        ? await axios.get(`http://localhost:5000/api/profiles/search?skills=${query}`)
-        : await axios.get("http://localhost:5000/api/profiles");
-      setProfiles(res.data);
+      const res = await axios.get("http://localhost:3001/api/profiles");
+      setProfiles(res.data.data);
     } catch (error) {
       console.error(error);
     }
-  };
+  },[]);
+
+  const searchProfiles = useCallback(async () => {
+    try {
+      const res = await axios.get(`http://localhost:3001/api/profiles/search?skills=${query}`)
+      setProfiles(res.data.data);
+    } catch (error) {
+      console.error(error);
+    }
+  },[query]);
+
+  useEffect(() => {
+    fetchProfiles();
+  }, [fetchProfiles]);
 
   return (
     <>
-      <Navbar />
+      <Navbar  />
       <div className="container mx-auto p-6">
-        <SearchBar onSearch={setQuery} />
+        <SearchBar onSearch={setQuery} handleProfileSearch={searchProfiles}/>
         {profiles.length ? (
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             {profiles.map((p) => (

@@ -8,7 +8,7 @@ export default function CreateProfile() {
 
   const handleSubmit = async (data) => {
     try {
-      await axios.post("http://localhost:5000/api/profiles", data);
+      await axios.post("http://localhost:3001/api/profiles", data);
       navigate("/");
     } catch (error) {
       console.error(error);

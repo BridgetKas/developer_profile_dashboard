@@ -31,7 +31,7 @@ export default function ProfileForm({ onSubmit, initialData = {} }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-6 rounded-lg shadow-md space-y-3 max-w-md mx-auto"
+      className="bg-white p-6 rounded-lg shadow-2xl space-y-3 max-w-md mx-auto"
     >
       <input
         name="name"
@@ -39,7 +39,8 @@ export default function ProfileForm({ onSubmit, initialData = {} }) {
         value={form.name}
         onChange={handleChange}
         required
-        className="border p-2 rounded w-full"
+        className= " placeholder-gray-400 border border-gray-400 rounded w-full p-2  focus:border-blue-600 focus:ring-blue-600 focus:ring-2 focus:outline-none "
+
       />
       <input
         name="email"
@@ -47,21 +48,24 @@ export default function ProfileForm({ onSubmit, initialData = {} }) {
         value={form.email}
         onChange={handleChange}
         required
-        className="border p-2 rounded w-full"
+        className= "placeholder-gray-400 border border-gray-400 rounded w-full p-2  focus:border-blue-600 focus:ring-blue-600 focus:ring-2 focus:outline-none "
+
       />
       <input
         name="location"
         placeholder="Location"
         value={form.location}
         onChange={handleChange}
-        className="border p-2 rounded w-full"
+        className= "placeholder-gray-400 border border-gray-400 rounded w-full p-2  focus:border-blue-600 focus:ring-blue-600 focus:ring-2 focus:outline-none "
+
       />
       <input
         name="skills"
         placeholder="Skills (comma separated)"
         value={form.skills}
         onChange={handleChange}
-        className="border p-2 rounded w-full"
+        className= "placeholder-gray-400 border border-gray-400 rounded w-full p-2  focus:border-blue-600 focus:ring-blue-600 focus:ring-2 focus:outline-none "
+
       />
       <input
         type="number"
@@ -69,7 +73,8 @@ export default function ProfileForm({ onSubmit, initialData = {} }) {
         placeholder="Experience (years)"
         value={form.experienceYears}
         onChange={handleChange}
-        className="border p-2 rounded w-full"
+        className= "placeholder-gray-400 border border-gray-400 rounded w-full p-2  focus:border-blue-600 focus:ring-blue-600 focus:ring-2 focus:outline-none "
+
       />
       <input
         type="number"
@@ -77,7 +82,8 @@ export default function ProfileForm({ onSubmit, initialData = {} }) {
         placeholder="Hourly rate (USD)"
         value={form.hourlyRate}
         onChange={handleChange}
-        className="border p-2 rounded w-full"
+        className= "placeholder-gray-400 border border-gray-400 rounded w-full p-2  focus:border-blue-600 focus:ring-blue-600 focus:ring-2 focus:outline-none "
+
       />
       <label className="flex items-center gap-2">
         <input

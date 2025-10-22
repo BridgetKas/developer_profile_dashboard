@@ -8,7 +8,7 @@ export default function Navbar() {
         to="/create"
         className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm"
       >
-        + Create Profile
+         Create Profile
       </Link>
     </nav>
   );

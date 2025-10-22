@@ -10,14 +10,15 @@ export default function EditProfile() {
   const [profile, setProfile] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/profiles/${id}`)
-      .then(res => setProfile(res.data))
+    axios.get(`http://localhost:3001/api/profiles/${id}`)
+      .then(res => setProfile(res.data.data))
       .catch(err => console.error(err));
   }, [id]);
 
   const handleSubmit = async (data) => {
+    console.log('data',data)
     try {
-      await axios.put(`http://localhost:5000/api/profiles/${id}`, data);
+      await axios.put(`http://localhost:3001/api/profiles/${id}`, data);
       navigate("/");
     } catch (error) {
       console.error(error);
